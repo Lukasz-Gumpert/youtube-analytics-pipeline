@@ -1,0 +1,38 @@
+name: Daily YouTube Data
+
+on:
+  schedule:
+    - cron: "55 22 * * *"   # 23:55 czasu PL (UTC+1)
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create credentials files from secrets
+        # Dodajemy zabezpieczenie ' ', aby uniknąć problemów z formatowaniem JSON
+        run: |
+          echo '${{ secrets.GSHEETS_CREDENTIALS }}' > credentials.json
+          echo '${{ secrets.CLIENT_SECRET_JSON }}' > client_secret.json
+          echo '${{ secrets.TOKEN_JSON }}' > token.json
+
+      - name: Run script
+        env:
+          # Przekazujemy wszystkie potrzebne zmienne środowiskowe
+          API_KEY: ${{ secrets.API_KEY }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+        run: python tarot_youtube_data.py
