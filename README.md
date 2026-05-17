@@ -1,6 +1,3 @@
-# youtube-analytics-pipeline
-Automated ETL pipeline using Python and GitHub Actions to fetch, transform, and sync YouTube Analytics data with Google Sheets for custom Power BI dashboards.
-
 <p>
   <img src="youtube-analytics-pipeline\assets\image-1.png" width="150" alt='python'/>
   <img src="youtube-analytics-pipeline\assets\image-2.png" width="150" alt='powerbi'/>
