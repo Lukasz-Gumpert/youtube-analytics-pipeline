@@ -105,7 +105,7 @@ Instead, the workflow leverages GitHub Encrypted Secrets. Sensitive data blocks 
 ![DAX](https://img.shields.io/badge/DAX-%232196F3.svg?style=for-the-badge&logo=microsoft&logoColor=white)
 
 ### Client Constraints & Visual Identity ("Stellar Analytics")
-To meet the client's strict branding requirements, the entire user interface was custom-engineered to seamlessly match the visual identity and atmosphere of their active YouTube channel ("Tarot z Gwiazdami"):
+To meet the client's strict branding requirements, the entire user interface was custom-engineered to seamlessly match the visual identity and atmosphere of their active YouTube channel:
 
 <img src="youtube-analytics-pipeline\assets\dash-01.jpg" alt='dashboard main page'>
 
