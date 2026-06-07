@@ -1,0 +1,24 @@
+*credentials*.json
+*secret*.json
+*.env
+client_secrets.json
+.token_storage/
+
+# Python Compilation & Dependency Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local Machine Operational Metadata & OS Artefacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.desktop
+.idea/
+.vscode/
+*.pbix.user

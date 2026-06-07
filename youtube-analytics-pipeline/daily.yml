@@ -2,7 +2,7 @@ name: Daily YouTube Data
 
 on:
   schedule:
-    - cron: "55 22 * * *"   # 23:55 czasu PL (UTC+1)
+    - cron: "55 22 * * *"   # 23:55 Polish Time (UTC+1)
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Create credentials files from secrets
-        # Dodajemy zabezpieczenie ' ', aby uniknąć problemów z formatowaniem JSON
+        # Adding quotes safety mapping to prevent JSON formatting anomalies
         run: |
           echo '${{ secrets.GSHEETS_CREDENTIALS }}' > credentials.json
           echo '${{ secrets.CLIENT_SECRET_JSON }}' > client_secret.json
@@ -32,7 +32,7 @@ jobs:
 
       - name: Run script
         env:
-          # Przekazujemy wszystkie potrzebne zmienne środowiskowe
+          # Injecting all required environment variables dynamically at runtime
           API_KEY: ${{ secrets.API_KEY }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
         run: python tarot_youtube_data.py
